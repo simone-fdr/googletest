@@ -50,7 +50,7 @@ bool IsPrime(int n) {
 
   // Trivial case 2: even numbers
   if (n % 2 == 0){
-    std::cout << "HPC Test #414" << std::endl;
+    //std::cout << "HPC Test #414" << std::endl;
     return n == 2;
   }
 
