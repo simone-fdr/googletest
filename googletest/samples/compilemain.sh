@@ -1,1 +1,1 @@
-g++ -Wextra -Wall main_tests.cpp -o target/main sample1.cc
+g++ -Wextra -Wall googletest/samples/main_tests.cpp -o googletest/samples/target/main sample1.cc
