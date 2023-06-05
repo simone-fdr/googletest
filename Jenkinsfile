@@ -1,40 +1,53 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Def', url: 'https://github.com/simone-fdr/googletest']]])
-      }
-    }
+	agent any
+	stages{
+		stage('Build'){
+			steps{
+				sh 'echo "Building.."'
+				sh 'chmod +x scripts/Linux-Build.sh'
+				sh 'scripts/Linux-Build.sh'
+				archiveArtifacts artifacts: '*', fingerprint: true
+			}
+	}
+	stage('Test 1-8'){
+		steps{
+			sh 'echo "Running 1-8..."'
+			sh 'scripts/Linux-Run1.sh'
+		}
+	}
+	stage('Test 9'){
+		steps{
+			sh 'echo "Running 9..."'
+			sh 'scripts/Linux-Run2.sh'
 
-    stage('Build') {
-      steps {
-        sh "mkdir -p ${BUILD_DIR}"
-        dir(path: BUILD_DIR) {
-          sh 'cmake ..'
-          sh 'make'
-        }
-
-      }
-    }
-
-    stage('Test') {
-      steps {
-        dir(path: BUILD_DIR) {
-          sh './main'
-        }
-
-      }
-    }
-
-  }
-  environment {
-    BUILD_DIR = 'build'
-  }
-  post {
-    always {
-      sh "rm -rf ${BUILD_DIR}"
-    }
-
-  }
+		}
+	}
+	stage('Test 10'){
+		steps{
+			sh 'echo "Running 10..."'
+			sh 'scripts/Linux-Run3.sh'
+		}
+	}
+	stage('Run main'){
+		steps{
+			sh 'echo "Running main..."'
+			sh 'scripts/Linux-RunMain.sh'		
+		}
+	}
+	stage('Build Docker'){
+		steps{
+			script{
+				sh 'docker build -t simone-fdr/googletest .'
+			}
+		}
+	}
+	stage('Push Docker'){
+		steps{
+			withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'dockerhub_pwd')]) {
+				sh 'docker login -u simone-fdr -p ${dockerhub_pwd}'
+			}
+			sh 'docker push filobuda/googletest'
+		}
+	}
+}
 }
