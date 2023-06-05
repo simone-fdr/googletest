@@ -22,7 +22,11 @@ pipeline {
       steps {
         dir(path: BUILD_DIR) {
           sh 'pwd'
-          sh 'ls googletest/'
+          sh 'ls -la googletest/'
+          sh 'ls -la googlemock/'
+          sh 'ls -la googletest/generated'
+          sh 'ls -la googletest/generated'
+          sh 'ls -la ..
         }
 
       }
