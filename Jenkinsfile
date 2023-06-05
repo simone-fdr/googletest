@@ -21,8 +21,7 @@ pipeline {
     stage('Test') {
       steps {
         dir(path: BUILD_DIR) {
-          sh 'chmod +x googletest/generated/gtest_main.pc'
-          sh './googletest/generated/gtest_main.pc'
+          sh './main'
         }
 
       }
