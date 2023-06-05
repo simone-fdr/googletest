@@ -37,3 +37,12 @@ if(BUILD_GMOCK)
 else()
   add_subdirectory( googletest )
 endif()
+
+# Add the main.cpp file to the executable
+add_executable(main main.cpp main.cpp main.cpp)
+
+# Link the googletest library to the executable
+target_link_libraries(main gtest gtest_main)
+
+# Add the test
+add_test(NAME MyTest COMMAND main)
