@@ -12,7 +12,7 @@ pipeline {
 	stage('Test 1-8'){
 		steps{
 			sh 'echo "Running 1-8..."'
-			sh '.src/build/exec'
+			sh './src/build/exec'
 
 		}
 	}
