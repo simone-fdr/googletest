@@ -12,9 +12,7 @@ pipeline {
         sh "mkdir -p ${BUILD_DIR}"
         dir(path: BUILD_DIR) {
           sh 'cmake ..'
-          sh 'pwd'
           sh 'make'
-          sh 'pwd'
         }
 
       }
@@ -24,7 +22,7 @@ pipeline {
       steps {
         dir(path: BUILD_DIR) {
           sh 'pwd'
-          sh 'ls -la'
+          sh 'ls googletest/'
         }
 
       }
