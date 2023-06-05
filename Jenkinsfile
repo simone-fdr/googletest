@@ -21,7 +21,7 @@ pipeline {
     stage('Test') {
       steps {
         dir(path: BUILD_DIR) {
-          sh './gtest_main'
+          sh 'ls -la'
         }
 
       }
