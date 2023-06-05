@@ -23,6 +23,7 @@ pipeline {
     stage('Test') {
       steps {
         dir(path: BUILD_DIR) {
+          sh 'pwd'
           sh 'ls -la'
         }
 
