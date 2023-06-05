@@ -19,7 +19,7 @@ pipeline {
 			//sh 'chmod +x scripts/Linux-Run1.sh'
 			//sh 'scripts/Linux-Run1.sh'
 			sh 'cd src/build'
-			sh './exec'
+			sh '.src/build/exec'
 		}
 	}
 	stage('Test 9'){
@@ -28,7 +28,7 @@ pipeline {
 			//sh 'chmod +x scripts/Linux-Run2.sh'
 			//sh 'scripts/Linux-Run2.sh'
 			sh 'cd src/build'
-			sh './exec2'
+			sh '.src/build/exec2'
 		}
 	}
 	stage('Test 10'){
@@ -37,7 +37,7 @@ pipeline {
 			//sh 'chmod +x scripts/Linux-Run3.sh'
 			//sh 'scripts/Linux-Run3.sh'
 			sh 'cd src/build'
-			sh './exec3'
+			sh '.src/build/exec3'
 		}
 	}
 	stage('Run main'){
@@ -46,7 +46,7 @@ pipeline {
 			//sh 'chmod +x scripts/Linux-RunMain.sh'
 			//sh 'scripts/Linux-RunMain.sh'		
 			sh 'cd src/build'
-			sh './main matrix.txt'
+			sh '.src/build/main matrix.txt'
 		}
 	}
 	stage('Build Docker'){
