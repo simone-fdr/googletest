@@ -26,7 +26,7 @@ pipeline {
           sh 'ls -la googlemock/'
           sh 'ls -la googletest/generated'
           sh 'ls -la googletest/generated'
-          sh 'ls ..
+          sh 'ls ..'
         }
 
       }
