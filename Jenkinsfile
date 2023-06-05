@@ -10,7 +10,7 @@ pipeline {
 				sh 'cd src/build'
 				sh 'cmake ..'
 				sh 'make'
-				//archiveArtifacts artifacts: '*', fingerprint: true
+				archiveArtifacts artifacts: '*', fingerprint: true
 			}
 	}
 	stage('Test 1-8'){
