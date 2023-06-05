@@ -12,10 +12,7 @@ pipeline {
 	stage('Test 1-8'){
 		steps{
 			sh 'echo "Running 1-8..."'
-			sh 'pwd'
-			sh 'cd src/build'
-			sh 'pwd'
-			sh './exec'
+			sh '.src/build/exec'
 
 		}
 	}
