@@ -12,8 +12,8 @@ pipeline {
 	stage('Test 1-8'){
 		steps{
 			sh 'echo "Running 1-8..."'
-			sh './src/build/exec'
-
+			sh 'chmod +x scripts/Linux-Run1.sh'
+			sh 'scripts/Linux-Run1.sh'
 		}
 	}
 	stage('Test 9'){
@@ -27,12 +27,14 @@ pipeline {
 	stage('Test 10'){
 		steps{
 			sh 'echo "Running 10..."'
+			sh 'chmod +x scripts/Linux-Run3.sh'
 			sh 'scripts/Linux-Run3.sh'
 		}
 	}
 	stage('Run main'){
 		steps{
 			sh 'echo "Running main..."'
+			sh 'chmod +x scripts/Linux-RunMain.sh'
 			sh 'scripts/Linux-RunMain.sh'		
 		}
 	}
