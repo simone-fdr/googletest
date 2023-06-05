@@ -21,7 +21,7 @@ pipeline {
     stage('Test') {
       steps {
         dir(path: BUILD_DIR) {
-          sh './googletest/generated/gtest_main.pc'
+          sh 'sudo ./googletest/generated/gtest_main.pc'
         }
 
       }
