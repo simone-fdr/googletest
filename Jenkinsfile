@@ -18,7 +18,7 @@ pipeline {
 			sh 'echo "Running 1-8..."'
 			//sh 'chmod +x scripts/Linux-Run1.sh'
 			//sh 'scripts/Linux-Run1.sh'
-			sh 'cd src/build'
+			//sh 'cd src/build'
 			sh '.src/build/exec'
 		}
 	}
@@ -27,7 +27,7 @@ pipeline {
 			sh 'echo "Running 9..."'
 			//sh 'chmod +x scripts/Linux-Run2.sh'
 			//sh 'scripts/Linux-Run2.sh'
-			sh 'cd src/build'
+			//sh 'cd src/build'
 			sh '.src/build/exec2'
 		}
 	}
@@ -36,7 +36,7 @@ pipeline {
 			sh 'echo "Running 10..."'
 			//sh 'chmod +x scripts/Linux-Run3.sh'
 			//sh 'scripts/Linux-Run3.sh'
-			sh 'cd src/build'
+			//sh 'cd src/build'
 			sh '.src/build/exec3'
 		}
 	}
@@ -45,7 +45,7 @@ pipeline {
 			sh 'echo "Running main..."'
 			//sh 'chmod +x scripts/Linux-RunMain.sh'
 			//sh 'scripts/Linux-RunMain.sh'		
-			sh 'cd src/build'
+			//sh 'cd src/build'
 			sh '.src/build/main matrix.txt'
 		}
 	}
