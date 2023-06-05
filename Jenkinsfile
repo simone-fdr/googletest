@@ -21,12 +21,7 @@ pipeline {
     stage('Test') {
       steps {
         dir(path: BUILD_DIR) {
-          sh 'pwd'
-          sh 'ls -la googletest/'
-          sh 'ls -la googlemock/'
-          sh 'ls -la googletest/generated'
-          sh 'ls ..'
-          sh './googletest/generated/gtest_main'
+          sh './googletest/generated/gtest_main.pc'
         }
 
       }
