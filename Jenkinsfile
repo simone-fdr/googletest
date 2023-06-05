@@ -19,6 +19,7 @@ pipeline {
 	stage('Test 9'){
 		steps{
 			sh 'echo "Running 9..."'
+			sh 'chmod +x scripts/Linux-Run2.sh'
 			sh 'scripts/Linux-Run2.sh'
 
 		}
