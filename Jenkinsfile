@@ -6,47 +6,36 @@ pipeline {
 				sh 'echo "Building.."'
 				sh 'chmod +x scripts/Linux-Build.sh'
 				sh 'scripts/Linux-Build.sh'
-				//sh 'mkdir scripts/src/build'
-				//sh 'cd scripts/src/build'
-				//sh 'cmake ..'
-				//sh 'make'
 				archiveArtifacts artifacts: '*', fingerprint: true
 			}
 	}
 	stage('Test 1-8'){
 		steps{
 			sh 'echo "Running 1-8..."'
-			//sh 'chmod +x scripts/Linux-Run1.sh'
-			//sh 'scripts/Linux-Run1.sh'
-			//sh 'cd src/build'
-			sh '.src/build/exec'
+			sh 'chmod +x scripts/Linux-Run1.sh'
+			sh 'scripts/Linux-Run1.sh'
 		}
 	}
 	stage('Test 9'){
 		steps{
 			sh 'echo "Running 9..."'
-			//sh 'chmod +x scripts/Linux-Run2.sh'
-			//sh 'scripts/Linux-Run2.sh'
-			//sh 'cd src/build'
-			sh '.src/build/exec2'
+			sh 'chmod +x scripts/Linux-Run2.sh'
+			sh 'scripts/Linux-Run2.sh'
+
 		}
 	}
 	stage('Test 10'){
 		steps{
 			sh 'echo "Running 10..."'
-			//sh 'chmod +x scripts/Linux-Run3.sh'
-			//sh 'scripts/Linux-Run3.sh'
-			//sh 'cd src/build'
-			sh '.src/build/exec3'
+			sh 'chmod +x scripts/Linux-Run3.sh'
+			sh 'scripts/Linux-Run3.sh'
 		}
 	}
 	stage('Run main'){
 		steps{
 			sh 'echo "Running main..."'
-			//sh 'chmod +x scripts/Linux-RunMain.sh'
-			//sh 'scripts/Linux-RunMain.sh'		
-			//sh 'cd src/build'
-			sh '.src/build/main matrix.txt'
+			sh 'chmod +x scripts/Linux-RunMain.sh'
+			sh 'scripts/Linux-RunMain.sh'		
 		}
 	}
 	stage('Build Docker'){
