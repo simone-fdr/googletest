@@ -4,12 +4,12 @@ pipeline {
 		stage('Build'){
 			steps{
 				sh 'echo "Building.."'
-				//sh 'chmod +x scripts/Linux-Build.sh'
-				//sh 'scripts/Linux-Build.sh'
-				sh 'mkdir scripts/src/build'
-				sh 'cd scripts/src/build'
-				sh 'cmake ..'
-				sh 'make'
+				sh 'chmod +x scripts/Linux-Build.sh'
+				sh 'scripts/Linux-Build.sh'
+				//sh 'mkdir scripts/src/build'
+				//sh 'cd scripts/src/build'
+				//sh 'cmake ..'
+				//sh 'make'
 				archiveArtifacts artifacts: '*', fingerprint: true
 			}
 	}
