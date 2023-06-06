@@ -52,7 +52,7 @@ pipeline {
 			withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'dockerhub_pwd')]) {
 				sh 'docker login -u simone-fdr -p ${dockerhub_pwd}'
 			}
-			sh 'docker push filobuda/googletest'
+			sh 'docker push simone-fdr/googletest'
 		}
 	}
 }
