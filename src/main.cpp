@@ -66,6 +66,8 @@ int main(int argc, char** argv) {
     if (argc > 1) {
         fileName = argv[1];
         std::cout << fileName << std::endl;
+        Fibonacci fibMain(fileName);
+        std::cout << fibMain.get(0) << " " << fibMain.get(1) << " " << fibMain << fibMain.get(2) << std::endl;
         testing::InitGoogleTest(&argc, argv);
         int result =RUN_ALL_TESTS();
         fclose(f_out);
