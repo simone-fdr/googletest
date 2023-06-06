@@ -50,9 +50,6 @@ class Fibonacci {
 TEST(FibonacciTest, IsFibonacci) {
     Fibonacci fib(fileName);
     for (int i = 0; i < fib.getSize() - 2; i++) {
-        std::cout << fib.get(i);
-        std::cout << fib.get(i+1);
-        std::cout << fib.get(i+2);
         ASSERT_EQ(fib.get(i + 2), fib.get(i) + fib.get(i + 1));
     }
 }
@@ -68,6 +65,7 @@ int main(int argc, char** argv) {
     FILE* f_out = freopen("output_file.txt", "w", stdout);
     if (argc > 1) {
         fileName = argv[1];
+        std::cout << fileName << std::endl;
         testing::InitGoogleTest(&argc, argv);
         int result =RUN_ALL_TESTS();
         fclose(f_out);
