@@ -17,9 +17,12 @@ class Fibonacci {
     public:
         Fibonacci(const std::string& filename) {
             std::ifstream fin(filename);
+            std::string line;
+
+            std::getline(fin, line);
 
             int element;
-            while (fin >> element)
+            while (line >> element)
             {
                 data.push_back(element);
             }
@@ -61,6 +64,12 @@ int main(int argc, char** argv) {
     if (argc > 1) {
         fileName = argv[1];
         std::cout << fileName << std::endl;
+        std::ifstream fin(fileName);
+        std::string line;
+        std::getline(fin, line);
+
+        std::cout << line;
+
         Fibonacci fibMain(fileName);
         std::cout << fibMain.getSize() << std::endl;
         //std::cout << fibMain.get(0) << " " << fibMain.get(1) << " " << fibMain << fibMain.get(2) << std::endl;
