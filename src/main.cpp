@@ -8,15 +8,15 @@
 #include "../googletest/samples/sample1.h"
 
 
-std::string matrixFileName;
+std::string fileName;
 
 
-class Matrix {
+class Fibonacci {
     private:
         std::vector<std::vector<int>> data;
 
     public:
-        Matrix(const std::string& filename) {
+        Fibonacci(const std::string& filename) {
             std::string line;
             std::ifstream file(filename);
             
@@ -43,31 +43,35 @@ class Matrix {
             }
         }
 
-        int getRows(){
+        int getNumSeq(){
             return data.size();
         }
-        int getCols(){
-            return  data.at(0).size();
+        int getLength(int i){
+            return  data.at(i).size();
         }
-        int get(int i, int j) { return data.at(i).at(j);}
-        std::vector<int> getRow(int i) { return data.at(i);}
+        int get(int i, int j) {
+            return data.at(i).at(j);
+        }
+        std::vector<int> getSeq(int i) {
+            return data.at(i);
+        }
 };
 
 
-TEST(MatrixTest, IsMatrixFull) {
-    Matrix matrix(matrixFileName);
-    for (int i = 0; i < matrix.getRows(); i++) {
-        for(int j = 0; j < matrix.getCols() && j != i; j++){
-            ASSERT_EQ(matrix.getRow(i).size(), matrix.getRow(j).size());
+TEST(FibonacciTest, IsFibonacci) {
+    Fibonacci fib(fileName);
+    for (int i = 0; i < fib.getNumSeq(); i++) {
+        for(int j = 0; j < fib.getLength(i) - 2 && j != i; j++){
+            ASSERT_EQ(fib.get(i,j + 2), fib.get(i,j) + fib.get(i,j + 1));
         }
     }
 }
 
-TEST(MatrixTest, IsMatrixPrime) {
-    Matrix matrix(matrixFileName);
-    for (int i = 0; i < matrix.getRows(); i++) {
-        for (int j = 0; j < matrix.getCols(); j++) {
-            ASSERT_TRUE(IsPrime(matrix.get(i, j)));
+TEST(FibonacciTest, IsFibonacciPrime) {
+    Fibonacci fib(fileName);
+    for (int i = 0; i < fib.getNumSeq(); i++) {
+        for (int j = 0; j < fib.getLength(i); j++) {
+            ASSERT_TRUE(IsPrime(fib.get(i, j)));
         }
     }
 }
@@ -75,13 +79,13 @@ TEST(MatrixTest, IsMatrixPrime) {
 int main(int argc, char** argv) {
     FILE* f_out = freopen("output_file.txt", "w", stdout);
     if (argc > 1) {
-        matrixFileName = argv[1];
+        fileName = argv[1];
         testing::InitGoogleTest(&argc, argv);
         int result =RUN_ALL_TESTS();
         fclose(f_out);
         return result;
     } else {
-        std::cerr << "No matrix file provided!" << std::endl;
+        std::cerr << "No seq file provided!" << std::endl;
         return 1;
     }
 }
