@@ -16,18 +16,12 @@ class Fibonacci {
 
     public:
         Fibonacci(const std::string& filename) {
-            std::string line;
-            std::ifstream file(filename);
+            std::ifstream fin(filename);
             
-            while (std::getline(file, line)) {
-                std::cout << line << " la linea letta" << std::endl;
-                int value;
-                std::istringstream iss(line);
-
-                while (iss >> value) {
-                    std::cout << "Non lo fa" << value << std::endl;
-                    data.push_back(value);
-                }
+            int element;
+            while (fin >> element)
+            {
+                data.push_back(element);
             }
         }
 
