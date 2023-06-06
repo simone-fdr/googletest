@@ -48,8 +48,8 @@ pipeline {
 	}
 	stage('Push Docker'){
 		steps{
-			withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'dockerhub_pwd')]) {
-				sh 'docker login -u simone-fdr -p ${dockerhub_pwd}'
+			withCredentials([string(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+				sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
 			}
 			sh 'docker push simone-fdr/googletest'
 		}
