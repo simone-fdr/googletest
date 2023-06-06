@@ -43,7 +43,7 @@ pipeline {
 	stage('Build Docker'){
 		steps{
 			script{
-				sh 'docker build -t simone-fdr/googletest .'
+				sh 'sudo docker build -t simone-fdr/googletest .'
 			}
 		}
 	}
