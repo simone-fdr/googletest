@@ -34,10 +34,12 @@ class Fibonacci {
         }
 
         void print() const {
-            for (int value : data) {
-                std::cout << value << " ";
+            for (const auto& row : data) {
+                for (int value : row) {
+                    std::cout << value << " ";
+                }
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
         }
 
         int getNumSeq(){
