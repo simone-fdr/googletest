@@ -17,10 +17,10 @@ class Fibonacci {
     public:
         Fibonacci(const std::string& filename) {
             std::string line;
-            std::cout << line << " la linea" << std::endl;
             std::ifstream file(filename);
             
             while (std::getline(file, line)) {
+                std::cout << line << " la linea letta" << std::endl;
                 int value;
                 std::istringstream iss(line);
 
