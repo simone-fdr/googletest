@@ -59,14 +59,14 @@ class Fibonacci {
 
 TEST(FibonacciTest, IsFibonacci) {
     Fibonacci fib(fileName);
-    for (int i = 0; i < fib.getSize() - 2; i++) {
+    for (int i = 0; i < fib.getLength(0) - 2; i++) {
         ASSERT_EQ(fib.get(i + 2, 0), fib.get(i, 0) + fib.get(i + 1, 0));
     }
 }
 
 TEST(FibonacciTest, IsPrime) {
     Fibonacci fib(fileName);
-    for (int i = 0; i < fib.getSize(); i++) {
+    for (int i = 0; i < fib.getLength(0); i++) {
         ASSERT_TRUE(IsPrime(fib.get(i, 0)));
     }
 }
