@@ -64,6 +64,7 @@ TEST(FibonacciTest, IsPrime) {
 int main(int argc, char** argv) {
     FILE* f_out = freopen("output_file.txt", "w", stdout);
     if (argc > 1) {
+        std::cout << "OK" << std::endl;
         fileName = argv[1];
         testing::InitGoogleTest(&argc, argv);
         int result =RUN_ALL_TESTS();
