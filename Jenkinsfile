@@ -42,7 +42,7 @@ pipeline {
 	stage('Build Docker'){
 		steps{
 			script{
-				sh 'docker build -t simone-fdr/googletest .'
+				sh 'docker build -t simonefdr/googletest .'
 			}
 		}
 	}
@@ -51,7 +51,7 @@ pipeline {
 			withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhub_pwd')]) {
 				sh 'docker login -u simonefdr -p ${dockerhub_pwd}'
 			}
-			sh 'docker push simone-fdr/googletest'
+			sh 'docker push simonefdr/googletest'
 		}
 	}
 }
