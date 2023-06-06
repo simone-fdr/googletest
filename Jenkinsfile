@@ -35,15 +35,14 @@ pipeline {
 		steps{
 			sh 'echo "Running main..."'
 			sh 'chmod +x scripts/Linux-RunMain.sh'
-			sh 'scripts/Linux-RunMain.sh'		
-			sh 'pwd'
+			sh 'scripts/Linux-RunMain.sh'
 			sh 'cat src/build/output_file.txt'
 		}
 	}
 	stage('Build Docker'){
 		steps{
 			script{
-				sh 'sudo docker build -t simone-fdr/googletest .'
+				sh 'docker build -t simone-fdr/googletest .'
 			}
 		}
 	}
