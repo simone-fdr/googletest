@@ -17,7 +17,9 @@ class Fibonacci {
     public:
         Fibonacci(const std::string& filename) {
             std::ifstream fin(filename);
-            
+
+            std::cout << fin << std::endl;
+
             int element;
             while (fin >> element)
             {
