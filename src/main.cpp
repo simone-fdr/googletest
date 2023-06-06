@@ -22,10 +22,10 @@ class Fibonacci {
             std::getline(fin, line);
 
             int element;
-            while (line >> element)
-            {
-                data.push_back(element);
-            }
+            //while (line >> element)
+            //{
+            //    data.push_back(element);
+            //}
         }
 
         void print() const {
