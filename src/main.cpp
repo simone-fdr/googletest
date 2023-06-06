@@ -15,7 +15,7 @@ class Fibonacci {
         std::vector<int> data;
 
     public:
-        Matrix(const std::string& filename) {
+        Fibonacci(const std::string& filename) {
             std::string line;
             std::ifstream file(filename);
             
