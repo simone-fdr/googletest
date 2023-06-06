@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	stages{
-		stage('Build'){
+		stage('Building'){
 			steps{
 				sh 'echo "Building.."'
 				sh 'chmod +x scripts/build-all.sh'
