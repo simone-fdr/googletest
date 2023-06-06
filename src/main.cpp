@@ -68,7 +68,8 @@ int main(int argc, char** argv) {
         std::string line;
         std::getline(fin, line);
 
-        std::cout << line;
+        std::cout << "Ma scusa" << std::endl;
+        std::cout << line << std::endl;
 
         Fibonacci fibMain(fileName);
         std::cout << fibMain.getSize() << std::endl;
