@@ -18,6 +18,7 @@ class Fibonacci {
         Fibonacci(const std::string& filename) {
             std::string line;
             std::ifstream file(filename);
+            std::cout << filename << std::endl;
             
             while (std::getline(file, line)) {
                 std::cout << line << " la linea letta" << std::endl;
