@@ -8,12 +8,11 @@
 #include "../googletest/samples/sample1.h"
 
 
-std::string matrixFileName;
+std::string fileName;
 
-
-class Matrix {
+class Fibonacci {
     private:
-        std::vector<std::vector<int>> data;
+        std::vector<int> data;
 
     public:
         Matrix(const std::string& filename) {
@@ -26,62 +25,52 @@ class Matrix {
                 std::istringstream iss(line);
 
                 while (iss >> value) {
-                    row.push_back(value);
-                    
+                    data.push_back(value);
                 }
-
-                data.push_back(row);
             }
         }
 
         void print() const {
-            for (const auto& row : data) {
-                for (int value : row) {
-                    std::cout << value << " ";
-                }
-                std::cout << std::endl;
+            for (int value : data) {
+                std::cout << value << " ";
             }
+            std::cout << std::endl;
         }
 
-        int getRows(){
+        int getSize(){
             return data.size();
         }
-        int getCols(){
-            return  data.at(0).size();
+
+        int get(int i) {
+            return data.at(i);
         }
-        int get(int i, int j) { return data.at(i).at(j);}
-        std::vector<int> getRow(int i) { return data.at(i);}
 };
 
 
-TEST(MatrixTest, IsMatrixFull) {
-    Matrix matrix(matrixFileName);
-    for (int i = 0; i < matrix.getRows(); i++) {
-        for(int j = 0; j < matrix.getCols() && j != i; j++){
-            ASSERT_EQ(matrix.getRow(i).size(), matrix.getRow(j).size());
-        }
+TEST(FibonacciTest, IsFibonacci) {
+    Fibonacci fib(fileName);
+    for (int i = 0; i < fib.getSize() - 2; i++) {
+        ASSERT_EQ(fib.get(i + 2), fib.get(i) + fib.get(i + 1));
     }
 }
 
-TEST(MatrixTest, IsMatrixPrime) {
-    Matrix matrix(matrixFileName);
-    for (int i = 0; i < matrix.getRows(); i++) {
-        for (int j = 0; j < matrix.getCols(); j++) {
-            ASSERT_TRUE(IsPrime(matrix.get(i, j)));
-        }
+TEST(FibonacciTest, IsPrime) {
+    Fibonacci fib(fileName);
+    for (int i = 0; i < fib.getSize(); i++) {
+        ASSERT_TRUE(IsPrime(fib.get(i)));
     }
 }
 
 int main(int argc, char** argv) {
     FILE* f_out = freopen("output_file.txt", "w", stdout);
     if (argc > 1) {
-        matrixFileName = argv[1];
+        fileName = argv[1];
         testing::InitGoogleTest(&argc, argv);
         int result =RUN_ALL_TESTS();
         fclose(f_out);
         return result;
     } else {
-        std::cerr << "No matrix file provided!" << std::endl;
+        std::cerr << "No sequence file provided!" << std::endl;
         return 1;
     }
 }
