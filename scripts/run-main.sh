@@ -2,4 +2,4 @@
 cp src/fibonacci.txt src/build
 cd src/build
 ./main fibonacci.txt
-cat src/build/output_file.txt
+cat output_file.txt
