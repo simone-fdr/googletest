@@ -36,7 +36,6 @@ pipeline {
 			sh 'echo "Running main..."'
 			sh 'chmod +x scripts/run-main.sh'
 			sh 'scripts/run-main.sh'
-			sh 'cat src/build/output_file.txt'
 		}
 	}
 	stage('Build Docker'){
