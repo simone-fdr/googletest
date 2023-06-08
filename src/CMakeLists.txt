@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(MatrixVector)
+project(Fibonacci)
 
 # Locate and include Google Test
 find_package(GTest REQUIRED)
