@@ -1,5 +1,5 @@
 #!/bin/bash
-mv src/fibonacci.txt src/build
+#mv src/fibonacci.txt src/build
 cd src/build
 ls
 echo 'tra le due ls'
