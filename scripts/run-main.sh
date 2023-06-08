@@ -1,4 +1,7 @@
 #!/bin/bash
 mv src/fibonacci.txt src/build
 cd src/build
-./main fibonacci.txt
+ls
+ls ..
+
+# ./main fibonacci.txt
