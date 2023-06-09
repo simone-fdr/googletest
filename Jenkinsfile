@@ -33,7 +33,7 @@ pipeline {
 	}
 	stage('Running main'){
 		steps{
-			sh 'echo "Running main..."'
+			sh 'echo "Running Main..."'
 			sh 'chmod +x scripts/run-main.sh'
 			sh 'scripts/run-main.sh'
 		}
